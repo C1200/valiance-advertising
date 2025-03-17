@@ -1,4 +1,4 @@
-local index = "http://localhost:5173/cc/index.json"
+local index = "https://valiance-advertising.vercel.app/cc/index.json"
 local location = "default"
 
 function drawImage(url, monitor)

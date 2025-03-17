@@ -1,9 +1,9 @@
 {
   "default": {
     "files": [
-      "http://localhost:5173/cc/valiance-ads",
-      "http://localhost:5173/cc/valiance-proud",
-      "http://localhost:5173/cc/valiance-service-update"
+      "https://valiance-advertising.vercel.app/cc/valiance-ads",
+      "https://valiance-advertising.vercel.app/cc/valiance-proud",
+      "https://valiance-advertising.vercel.app/cc/valiance-service-update"
     ]
   }
 }
