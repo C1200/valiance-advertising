@@ -1,54 +1,28 @@
-# React + TypeScript + Vite
+# Valiance Advertising
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## VCC File Format
 
-Currently, two official plugins are available:
+The VCC File Format is based on ANSI escape sequences. The null character (0x00)
+will start an escape sequence. Any other character encountered outside an escape
+sequence should be rendered normally with the previously specified formatting.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Following the null character is a command byte, after which an amount of
+arguments specific to each command will appear. Below is a reference of all of
+the commands:
 
-## Expanding the ESLint configuration
+- Foreground (text) color
+  - **Command byte:** f (0x66)
+  - **Arguments:** [1 byte] palette slot
+- Background color
+  - **Command byte:** b (0x62)
+  - **Arguments:** [1 byte] palette slot
+- Set palette slot color
+  - **Command byte:** p (0x70)
+  - **Arguments:** [1 byte] palette slot, [1 byte] red, [1 byte] blue, [1 byte]
+    green
+  - **Notes:** should apply globally, even to already written text
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Because of the limited color palette in CC, palette slots are used. These are
+represented using the ASCII characters (not hex numbers) 0-9 and a-f
+(lowercase).  It should be assumed that by default the palette is set to the one
+outlined in [this documentation](https://tweaked.cc/module/colors.html).
