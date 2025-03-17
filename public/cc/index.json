@@ -5,5 +5,10 @@
       "https://valiance-advertising.vercel.app/cc/valiance-proud",
       "https://valiance-advertising.vercel.app/cc/valiance-service-update"
     ]
+  },
+  "lavender-valley": {
+    "files": [
+      "https://valiance-advertising.vercel.app/cc/lavender-valley"
+    ]
   }
 }
