@@ -113,16 +113,11 @@ local currentFile = 1
 local iteration = 0
 
 while true do
-  -- should run every 5 minutes
-  if iteration == 50 then
-    files = findFiles()
-    iteration = 0
-  end
-
   local res = drawImage(files[currentFile], monitor)
 
   currentFile = currentFile + 1
   if currentFile == #files + 1 then
+    files = findFiles()
     currentFile = 1
   end
 
