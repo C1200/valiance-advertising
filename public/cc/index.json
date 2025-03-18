@@ -2,13 +2,13 @@
   "default": {
     "files": [
       "https://valiance-advertising.vercel.app/cc/valiance-ads",
-      "https://valiance-advertising.vercel.app/cc/valiance-proud",
       "https://valiance-advertising.vercel.app/cc/valiance-hst"
     ]
   },
   "lavender-valley": {
     "files": [
-      "https://valiance-advertising.vercel.app/cc/lavender-valley"
+      "https://valiance-advertising.vercel.app/cc/lavender-valley",
+      "https://valiance-advertising.vercel.app/cc/valiance-ns-express"
     ]
   }
 }
