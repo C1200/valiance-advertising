@@ -2,8 +2,7 @@
   "default": {
     "files": [
       "https://valiance-advertising.vercel.app/cc/valiance-ads",
-      "https://valiance-advertising.vercel.app/cc/valiance-hst",
-      "https://valiance-advertising.vercel.app/cc/service-update"
+      "https://valiance-advertising.vercel.app/cc/valiance-hst"
     ]
   },
   "lavender-valley": {
